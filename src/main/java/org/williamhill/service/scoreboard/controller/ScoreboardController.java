@@ -31,8 +31,10 @@ public class ScoreboardController {
 
   @GetMapping(value = "/scoreboard-events", produces = MediaType.APPLICATION_JSON_VALUE)
   @Operation(operationId = "getScoreboardEventByName_v1", description = "get highest price")
-  @ApiResponses(
-      @ApiResponse(responseCode = "200", description = "get scoreboard by event")
+  @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "get scoreboard by event"),
+        @ApiResponse(responseCode = "404", description = "event not found")
+      }
   )
   public Mono<ResponseEntity<ScoreboardViewModel>> getScoreboardByEvent(@RequestParam final Event event) {
     log.info("enter getScoreboardByEvent event = {}", event);

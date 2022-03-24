@@ -7,10 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.test.annotation.DirtiesContext;
 import org.williamhill.service.scoreboard.repository.mongo.domain.Scoreboard;
 import reactor.test.StepVerifier;
 
 @DataMongoTest(properties = {"spring.mongodb.embedded.version=3.5.5"})
+@DirtiesContext
 class SpringDataMongoScoreboardRepositoryTest {
 
   private static final String EVENT = "Man city v Man utd";

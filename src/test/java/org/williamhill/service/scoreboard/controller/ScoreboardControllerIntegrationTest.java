@@ -62,7 +62,7 @@ class ScoreboardControllerIntegrationTest {
         .jsonPath("$.timestamp").isNotEmpty()
         .jsonPath("$.error").isEqualTo("Not Found")
         .jsonPath("$.status").isEqualTo(404)
-        .jsonPath("$.message").isEqualTo("event with the name "+EVENT+" not found")
+        .jsonPath("$.message").isEqualTo("event with the name ".concat(EVENT).concat(" not found"))
         .jsonPath("$.path").isEqualTo("/api/1/scoreboard-events");
 
     verify(repository, times(1)).searchBy(anyString());

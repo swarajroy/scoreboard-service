@@ -100,7 +100,13 @@
 				<extensions>true</extensions>
 				<configuration>
 					<testFramework>JUNIT5</testFramework>
-					<testMode>WEBTESTCLIENT</testMode>
+					<testMode>EXPLICIT</testMode>
+					<baseClassMappings>
+						<baseClassMapping>
+							<contractPackageRegex>.*scoreboard.*</contractPackageRegex>
+							<baseClassFQN>org.williamhill.service.scoreboard.contract.ScoreboardServiceContractBase</baseClassFQN>
+						</baseClassMapping>
+					</baseClassMappings>
 				</configuration>
 			</plugin>
 			<plugin>
