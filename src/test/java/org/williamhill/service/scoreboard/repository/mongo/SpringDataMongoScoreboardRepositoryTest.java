@@ -21,7 +21,7 @@ class SpringDataMongoScoreboardRepositoryTest {
 
   @BeforeEach
   public void setUp() {
-    var scoreboard = new Scoreboard(EVENT);
+    var scoreboard = new Scoreboard(EVENT, NIL_NIL);
     repository.save(scoreboard).subscribe();
   }
 
@@ -39,7 +39,7 @@ class SpringDataMongoScoreboardRepositoryTest {
 
   @Test
   void shouldGetDuplicateKeyException() {
-    var scoreboard = new Scoreboard(EVENT);
+    var scoreboard = new Scoreboard(EVENT, NIL_NIL);
 
     StepVerifier.create(repository.save(scoreboard))
         .expectErrorSatisfies(throwable -> {
