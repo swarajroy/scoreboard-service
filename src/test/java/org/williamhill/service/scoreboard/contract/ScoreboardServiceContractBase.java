@@ -10,14 +10,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.williamhill.service.scoreboard.ScoreboardServiceApplication;
 import org.williamhill.service.scoreboard.repository.mongo.domain.Scoreboard;
 
 @SpringBootTest(classes = ScoreboardServiceApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT, properties = {"spring.mongodb.embedded.version=3.5.5", "server.servlet.context-path=/scoreboard-service"})
 @ExtendWith(SpringExtension.class)
-@DirtiesContext
 @Slf4j
 public class ScoreboardServiceContractBase {
 
@@ -30,7 +28,7 @@ public class ScoreboardServiceContractBase {
   @BeforeEach
   public void setup() {
     RestAssured.baseURI = "http://localhost:" + port;
-    reactiveMongoTemplate.save(new Scoreboard("AvsB", "0-0")).subscribe();
+    reactiveMongoTemplate.save(new Scoreboard("A vs B", "0-0")).subscribe();
   }
 
   @AfterEach

@@ -6,7 +6,7 @@ Contract.make {
     name("get scoreboard by event")
     request {
         method'GET'
-        url '/scoreboard-service/api/1/scoreboard-events?event=AvsB'
+        url '/scoreboard-service/api/1/scoreboard-events?event=A vs B'
     }
     response {
         status 200
